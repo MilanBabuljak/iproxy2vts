@@ -8,13 +8,13 @@ iProxy2vts is a lightweight systemd service that bridges VTube Studio tracking d
 ## Dependencies
   - libimobiledevice-dev 
   - libusbmuxd-dev 
-  - iproxy
+  - iproxy (part of libusbmuxd-tools)
   - libnotify-bin (for notifications)
 
 On Ubuntu/Debian, install them via:
   
 ```bash
-sudo apt-get install libimobiledevice-dev libusbmuxd-dev iproxy libnotify-bin
+sudo apt-get install libimobiledevice-dev libusbmuxd-dev libusbmuxd-tools libnotify-bin
 ```
 
 On Arch Linux:
