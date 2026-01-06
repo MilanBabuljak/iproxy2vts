@@ -74,7 +74,7 @@ void run_bridge(void) {
             }
 
             if (src == iphone) {
-               // send(iphone, buf, r, 0); 
+               send(iphone, buf, r, 0); 
             }
         }
     }
@@ -113,7 +113,7 @@ void drain_iphone_data(void) {
             }
             if (n > 0) {
                 last_data = time(NULL);
-                 // send(iphone, buf, n, 0);
+                 send(iphone, buf, n, 0);
             }
         }
         
@@ -128,7 +128,7 @@ void drain_iphone_data(void) {
                 return;
             }
         }
-        
+
         // uh oh
         if (now - last_data > KEEPALIVE_INTERVAL) {
             LOGMSG_WARN("No data from iPhone for %d seconds, reconnecting...", KEEPALIVE_INTERVAL);
