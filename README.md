@@ -2,37 +2,50 @@
 
 > [!WARNING]
 > This is proof of concept software provided as-is without any warranties. Use at your own risk.
-> The code quality is horrible due to it being written in less then 2 hours just to test the idea.
 
-iProxy2vts is a lightweight tool that bridges traffic from iProxy to VTube Studio, allowing Linux users to utilize iPhone tracking over USB.
+iProxy2vts is a lightweight systemd service that bridges VTube Studio tracking data from your iPhone to VTS on Linux over USB.
 
-## Dependencies
+## Dependencies
   - libimobiledevice-dev 
   - libusbmuxd-dev 
   - iproxy
+  - libnotify-bin (for notifications)
 
-on Ubuntu/Debian, install them via:
+On Ubuntu/Debian, install them via:
   
-  ```bash
-  sudo apt-get install libimobiledevice-dev libusbmuxd-dev iproxy
-  ```
+```bash
+sudo apt-get install libimobiledevice-dev libusbmuxd-dev iproxy libnotify-bin
+```
 
-## Building iProxy2vts
-1. Make sure you have all dependencies installed.
-2. `make`
-3. ???
-4. Profit?
+On Arch Linux:
+```bash
+sudo pacman -S libimobiledevice usbmuxd libnotify
+```
 
-The resulting binary will be named `iproxy2vts`.
+## Building & Installing
 
-## Running iProxy2vts
-1. Connect your iPhone to your Linux machine via USB.
+### Build
+```bash
+make
+```
 
-> [!CAUTION]
-> Make sure to trust the computer on your iPhone when prompted. If not prompted, use `idevicepair pair` from the command line. After that, check the connection with `idevicepair validate`.
+### Install as systemd user service
+```bash
+make install
+```
 
-2. Start VTube Studio on your iPhone and make sure USB is enabled under USB Settings.
-3. Start VTube Studio on your Linux machine, make sure it's set to port 25565.
-4. Run iProxy2vts
-5. ???
-6. Profit?
+This installs:
+- Binary to `~/.local/bin/iproxy2vts`
+- Systemd service to `~/.config/systemd/user/iproxy2vts.service`
+
+### Enable and start the service
+```bash
+systemctl --user daemon-reload
+systemctl --user enable iproxy2vts
+systemctl --user start iproxy2vts
+```
+
+### Uninstall
+```bash
+make uninstall
+```
