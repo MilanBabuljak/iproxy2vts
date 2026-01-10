@@ -3,6 +3,9 @@
 > [!WARNING]
 > This is proof of concept software provided as-is without any warranties. Use at your own risk.
 
+> [!WARNING]
+> This does NOT work under Gnome DE
+
 iProxy2vts is a lightweight systemd service that bridges VTube Studio tracking data from your iPhone to VTS on Linux over USB.
 
 ## Dependencies
