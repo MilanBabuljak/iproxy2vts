@@ -22,6 +22,11 @@ On Arch Linux:
 sudo pacman -S libimobiledevice usbmuxd libnotify
 ```
 
+On Fedora:
+```bash
+sudo dnf install git-core make gcc libimobiledevice-devel libimobiledevice-utils libusbmuxd-devel libusbmuxd-utils libnotify
+```
+
 ## Building & Installing
 
 ### Build
