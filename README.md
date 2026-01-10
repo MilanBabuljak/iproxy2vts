@@ -8,6 +8,16 @@
 
 iProxy2vts is a lightweight systemd service that bridges VTube Studio tracking data from your iPhone to VTS on Linux over USB.
 
+## Installation for Ubuntu-based distros
+On Ubuntu systems you can use my PPA. This is recommanded:
+
+```bash
+sudo add-apt-repository ppa:hiimmilan/iproxy2vts
+sudo apt update
+sudo apt install iproxy2vts
+```
+
+
 ## Dependencies
   - libimobiledevice-dev 
   - libusbmuxd-dev 
